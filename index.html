@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lays ❤️ Mauro - Nosso Amor Infinito</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6eb, #fcddec);
+      color: #e6005c;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+    .pulsing-heart {
+      animation: pulse 1.5s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+    h2, h3 {
+      font-size: 2rem;
+      color: #d63384;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    canvas {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    /* Estilo para o container do player de música */
+    .music-player-container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding: 10px; /* Adicionado um padding pequeno */
+      border-radius: 10px; /* Ajustado o border-radius */
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.7); /* Fundo suave para o player */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    /* Estilo para o player de áudio em si, se necessário (navegadores costumam ter seus próprios estilos) */
+    .music-player-container audio {
+      width: 300px; /* Ou o tamanho que preferir */
+    }
+
+    .countdown-container, .daily-phrase-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 2rem auto;
+      max-width: 600px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    #countdownTimer {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #d63384;
+    }
+    #dailyPhrase {
+      font-size: 1.3em;
+      font-style: italic;
+      color: #c2185b;
+      margin-top: 0.5em;
+    }
+    .container-title {
+        font-size: 1.5em;
+        color: #e6005c;
+        margin-bottom: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lays <span class="pulsing-heart">❤️</span> Mauro</h1>
+
+  <h3>Uma música especial para nós:</h3>
+  <div class="music-player-container">
+    <audio id="local-audio-player" controls src="true_love_soja.mp3">
+      Seu navegador não suporta o elemento de áudio.
+      Por favor, tente em um navegador mais moderno ou verifique se o arquivo de música está na pasta correta.
+    </audio>
+  </div>
+
+  <div class="countdown-container">
+    <p class="container-title">Contagem regressiva para nossos 3 meses! 🥂✨</p>
+    <div id="countdownTimer">Carregando...</div>
+  </div>
+
+  <div class="daily-phrase-container">
+    <p class="container-title">Pensamento do Dia 🥰:</p>
+    <div id="dailyPhrase">Carregando frase...</div>
+  </div>
+
+  <h2>Nossa Jornada de Amor</h2>
+  <p>Gráfico do crescimento do amor ao longo dos 90 dias</p>
+  <canvas id="heartChart" width="400" height="400"></canvas>
+
+  <h2>Nosso Amor em Um Só Coração ❤️</h2>
+  <canvas id="perfectHeartShapeChart" width="400" height="400"></canvas>
+
+  <script>
+    // --- Cronômetro Regressivo ---
+    // A data do aniversário de 3 meses (5 de Junho de 2025)
+    const anniversaryDate = new Date("June 5, 2025 00:00:00").getTime();
+
+    const countdownInterval = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = anniversaryDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const countdownElement = document.getElementById("countdownTimer");
+      if (countdownElement) {
+          if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "🎉 Feliz 3 Meses de Muito Amor! ❤️";
+          } else {
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s ⏳`;
+          }
+      }
+    }, 1000);
+
+    // --- Frases Românticas Diárias ---
+    const romanticPhrases = [
+      "Cada dia ao seu lado é um novo capítulo da nossa linda história de amor! Te amo! ❤️",
+      "Você é a melodia que meu coração não cansa de tocar e dançar. 🎶💑",
+      "Nosso amor floresce mais forte e belo a cada amanhecer juntos. 🌹☀️",
+      "Contando os segundos para sentir seu abraço e me perder no seu olhar! 🤗💖",
+      "Com você, a vida é uma eterna primavera, cheia de cores e alegrias. Te amo, meu bem! 🌷💞",
+      "Seu sorriso ilumina meus dias e aquece minha alma como o sol da manhã. 😊💘",
+      "Para sempre ainda parece pouco tempo para todo o amor que sinto por você. Te amo infinitamente! 💫💌",
+      "Que sorte a minha ter encontrado em você meu porto seguro e minha maior aventura! ⛵🗺️",
+      "Nossos corações batem no mesmo ritmo, construindo a mais linda canção de amor. 💞🎼",
+      "Você transforma o ordinário em extraordinário só por existir na minha vida. ✨ Te amo!"
+    ];
+
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const phraseIndex = dayOfYear % romanticPhrases.length;
+    const dailyPhraseElement = document.getElementById("dailyPhrase");
+    if (dailyPhraseElement) {
+        dailyPhraseElement.innerHTML = `"${romanticPhrases[phraseIndex]}"`;
+    }
+
+    // --- Scripts dos Gráficos (mantidos da versão anterior) ---
+    function generateLogGrowthData(totalDays) {
+      const labels = [];
+      const dataLays = [];
+      const dataMauro = [];
+      const A_Lays = 20, B_Lays = 0.3, C_Lays = 10;
+      const A_Mauro = 22, B_Mauro = 0.25, C_Mauro = 8;
+
+      for (let day = 1; day <= totalDays; day++) {
+        labels.push("Dia " + day);
+        dataLays.push(A_Lays * Math.log(B_Lays * day + 1) + C_Lays + Math.random() * 2.5);
+        dataMauro.push(A_Mauro * Math.log(B_Mauro * day + 1) + C_Mauro + Math.random() * 2.5);
+      }
+      return { labels, dataLays, dataMauro };
+    }
+
+    const { labels, dataLays, dataMauro } = generateLogGrowthData(90);
+    const ctxHeart = document.getElementById('heartChart').getContext('2d');
+    new Chart(ctxHeart, {
+      type: 'line',
+      data: { labels, datasets: [
+          { label: 'Lays 💖', data: dataLays, borderColor: '#ff69b4', backgroundColor: 'rgba(255,105,180,0.2)', fill: true, tension: 0.1 },
+          { label: 'Mauro 💘', data: dataMauro, borderColor: '#db2777', backgroundColor: 'rgba(219,39,119,0.2)', fill: true, tension: 0.1 }
+      ]},
+      options: { responsive: true, plugins: { title: { display: true, text: 'O Crescimento Infinito do Nosso Amor ❤️', font: { size: 22 }, color: '#d63384' }, legend: { labels: { font: { size: 14 }}}},
+        scales: { y: { beginAtZero: false, title: { display: true, text: 'Intensidade do Amor (Crescimento Infinito)' }}, x: { title: { display: true, text: 'Dias de Amor Eterno' }}},
+        animation: { duration: 1500, easing: 'easeInOutQuint' }
+      }
+    });
+
+    function generatePerfectHeartPlotData(steps) {
+      const dataPoints = [];
+      for (let i = 0; i <= steps; i++) {
+        const t = (Math.PI * 2 * i) / steps;
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+        dataPoints.push({ x: x, y: y });
+      }
+      return dataPoints;
+    }
+
+    const perfectHeartPoints = generatePerfectHeartPlotData(100);
+    const ctxPerfectHeart = document.getElementById('perfectHeartShapeChart').getContext('2d');
+    new Chart(ctxPerfectHeart, {
+      type: 'line',
+      data: { datasets: [{ label: 'Coração Perfeito', data: perfectHeartPoints, borderColor: '#d63384', backgroundColor: 'rgba(214, 51, 132, 0.3)', fill: true, tension: 0, pointRadius: 0, borderWidth: 3 }] },
+      options: { responsive: true, maintainAspectRatio: true, plugins: { title: { display: true, text: 'Símbolo do Nosso Amor Eterno 💘', font: { size: 22, family: 'Segoe UI'}, color: '#d63384'}, legend: {display: false}},
+        scales: { x: {type: 'linear', display: false}, y: {type: 'linear', display: false}},
+        animation: { duration: 2500, easing: 'easeOutCubic'}
+      }
+    });
+  </script>
+</body>
+</html>
