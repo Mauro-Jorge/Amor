@@ -18,7 +18,7 @@
     h1 {
       font-size: 2.5rem;
       color: #d63384;
-      margin-bottom: 1.5rem; /* Adicionado espaço abaixo do título principal */
+      margin-bottom: 1.5rem;
     }
     .pulsing-heart {
       animation: pulse 1.5s ease-in-out infinite;
@@ -78,23 +78,23 @@
         color: #e6005c;
         margin-bottom: 0.8em;
     }
-    /* Estilo para os porta-retratos */
     .picture-frame {
       background-color: white;
-      border: 8px solid #f08080; /* Cor da borda do porta-retrato */
+      border: 8px solid #f08080;
       border-radius: 10px;
       padding: 10px;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-      margin: 1.5rem auto; /* Espaçamento ao redor da imagem */
-      display: block; /* Para ocupar a largura total do container e centralizar com margin auto */
-      max-width: 400px; /* Defina um tamanho máximo para as fotos */
-      height: auto; /* Mantém a proporção da imagem */
+      margin: 1.5rem auto;
+      display: block;
+      max-width: 400px;
+      height: auto;
     }
     .picture-frame img {
-      display: block; /* Remove espaço extra abaixo da imagem */
-      width: 100%; /* A imagem ocupa toda a largura do porta-retrato */
+      display: block;
+      width: 100%;
       height: auto;
-      border-radius: 5px; /* Arredonda um pouco as bordas da imagem dentro do porta-retrato */
+      border-radius: 5px;
+      object-fit: cover; /* Garante que a imagem cubra a área sem distorcer, pode cortar um pouco se a proporção for diferente */
     }
   </style>
 </head>
@@ -102,7 +102,7 @@
   <h1>Lays <span class="pulsing-heart">❤️</span> Mauro</h1>
 
   <div class="picture-frame">
-    <img src="img1.jpg" alt="Nossa Foto 1">
+    <img src="img1.jpeg" alt="Nossa Foto 1 (Lays e Mauro)">
   </div>
 
   <h3>Uma música especial para nós:</h3>
@@ -128,14 +128,14 @@
   <canvas id="heartChart" width="400" height="400"></canvas>
 
   <div class="picture-frame">
-    <img src="img2.png" alt="Nossa Foto 2">
+    <img src="img2.jpeg" alt="Nossa Foto 2 (Momentos Felizes)">
   </div>
 
   <h2>Nosso Amor em Um Só Coração ❤️</h2>
   <canvas id="perfectHeartShapeChart" width="400" height="400"></canvas>
 
   <div class="picture-frame">
-    <img src="img3.jpeg" alt="Nossa Foto 3">
+    <img src="img3.jpeg" alt="Nossa Foto 3 (Amor Eterno)">
   </div>
 
   <script>
