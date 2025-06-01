@@ -18,6 +18,7 @@
     h1 {
       font-size: 2.5rem;
       color: #d63384;
+      margin-bottom: 1.5rem; /* Adicionado espaço abaixo do título principal */
     }
     .pulsing-heart {
       animation: pulse 1.5s ease-in-out infinite;
@@ -41,21 +42,18 @@
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
-    /* Estilo para o container do player de música */
     .music-player-container {
       margin-top: 2rem;
       margin-bottom: 2rem;
-      padding: 10px; /* Adicionado um padding pequeno */
-      border-radius: 10px; /* Ajustado o border-radius */
+      padding: 10px;
+      border-radius: 10px;
       display: inline-block;
-      background-color: rgba(255, 255, 255, 0.7); /* Fundo suave para o player */
+      background-color: rgba(255, 255, 255, 0.7);
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
-    /* Estilo para o player de áudio em si, se necessário (navegadores costumam ter seus próprios estilos) */
     .music-player-container audio {
-      width: 300px; /* Ou o tamanho que preferir */
+      width: 300px;
     }
-
     .countdown-container, .daily-phrase-container {
       background-color: rgba(255, 255, 255, 0.8);
       padding: 20px;
@@ -80,10 +78,32 @@
         color: #e6005c;
         margin-bottom: 0.8em;
     }
+    /* Estilo para os porta-retratos */
+    .picture-frame {
+      background-color: white;
+      border: 8px solid #f08080; /* Cor da borda do porta-retrato */
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      margin: 1.5rem auto; /* Espaçamento ao redor da imagem */
+      display: block; /* Para ocupar a largura total do container e centralizar com margin auto */
+      max-width: 400px; /* Defina um tamanho máximo para as fotos */
+      height: auto; /* Mantém a proporção da imagem */
+    }
+    .picture-frame img {
+      display: block; /* Remove espaço extra abaixo da imagem */
+      width: 100%; /* A imagem ocupa toda a largura do porta-retrato */
+      height: auto;
+      border-radius: 5px; /* Arredonda um pouco as bordas da imagem dentro do porta-retrato */
+    }
   </style>
 </head>
 <body>
   <h1>Lays <span class="pulsing-heart">❤️</span> Mauro</h1>
+
+  <div class="picture-frame">
+    <img src="img1.jpg" alt="Nossa Foto 1">
+  </div>
 
   <h3>Uma música especial para nós:</h3>
   <div class="music-player-container">
@@ -107,12 +127,19 @@
   <p>Gráfico do crescimento do amor ao longo dos 90 dias</p>
   <canvas id="heartChart" width="400" height="400"></canvas>
 
+  <div class="picture-frame">
+    <img src="img2.png" alt="Nossa Foto 2">
+  </div>
+
   <h2>Nosso Amor em Um Só Coração ❤️</h2>
   <canvas id="perfectHeartShapeChart" width="400" height="400"></canvas>
 
+  <div class="picture-frame">
+    <img src="img3.jpeg" alt="Nossa Foto 3">
+  </div>
+
   <script>
     // --- Cronômetro Regressivo ---
-    // A data do aniversário de 3 meses (5 de Junho de 2025)
     const anniversaryDate = new Date("June 5, 2025 00:00:00").getTime();
 
     const countdownInterval = setInterval(function() {
@@ -154,7 +181,7 @@
     const phraseIndex = dayOfYear % romanticPhrases.length;
     const dailyPhraseElement = document.getElementById("dailyPhrase");
     if (dailyPhraseElement) {
-        dailyPhraseElement.innerHTML = `"${romanticPhrases[phraseIndex]}"`;
+        dailyPhraseElement.innerHTML = `"${romanticPhrases [phraseIndex]}"`;
     }
 
     // --- Scripts dos Gráficos (mantidos da versão anterior) ---
