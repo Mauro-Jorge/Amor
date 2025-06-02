@@ -90,12 +90,13 @@
     }
     .image-mosaic {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Define as colunas base */
+      grid-auto-rows: minmax(200px, auto); /* Define as linhas base, importante para o espalhamento */
       gap: 15px;
     }
     .image-mosaic .mosaic-item {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1 / 1; /* Proporção padrão para as imagens menores */
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
@@ -112,11 +113,11 @@
       filter: brightness(1.1);
     }
 
-    /* Estilo para destacar a segunda imagem */
+    /* Estilo para a imagem destacada (img2) */
     .mosaic-item.featured {
-      grid-column: span 2; /* Faz a imagem ocupar o dobro da largura das outras */
-      /* Você pode ajustar a aspect-ratio se quiser uma altura diferente para a imagem destacada */
-      aspect-ratio: 8 / 3; /* Mantém uma proporção mais horizontal */
+      grid-column: span 2; /* Ocupa duas colunas */
+      grid-row: span 2; /* Ocupa duas linhas */
+      aspect-ratio: 1 / 1; /* Garante que fique quadrado */
     }
   </style>
 </head>
@@ -126,8 +127,8 @@
   <div class="image-mosaic-container">
     <h3>Nossos Momentos ❤️</h3>
     <div class="image-mosaic">
-      <div class="mosaic-item"><img src="img1.jpg" alt="Lays e Mauro - Momento 1"></div>
       <div class="mosaic-item featured"><img src="img2.jpg" alt="Lays e Mauro - Momento 2 (Destaque)"></div>
+      <div class="mosaic-item"><img src="img1.jpg" alt="Lays e Mauro - Momento 1"></div>
       <div class="mosaic-item"><img src="img3.jpeg" alt="Lays e Mauro - Ilustração Especial"></div>
       <div class="mosaic-item"><img src="img4.jpg" alt="Lays e Mauro - Momento 4"></div>
       <div class="mosaic-item"><img src="img5.jpg" alt="Lays e Mauro - Momento 5"></div>
