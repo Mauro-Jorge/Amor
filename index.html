@@ -86,7 +86,7 @@
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
       margin: 1.5rem auto;
       display: block;
-      max-width: 400px; /* Você pode ajustar isso conforme o tamanho das suas fotos */
+      max-width: 400px;
       height: auto;
     }
     .picture-frame img {
@@ -94,7 +94,7 @@
       width: 100%;
       height: auto;
       border-radius: 5px;
-      object-fit: cover;
+      object-fit: cover; /* Garante que a imagem cubra a área sem distorcer, pode cortar um pouco se a proporção for diferente */
     }
   </style>
 </head>
@@ -102,7 +102,7 @@
   <h1>Lays <span class="pulsing-heart">❤️</span> Mauro</h1>
 
   <div class="picture-frame">
-    <img src="img1.jpg" alt="Nossa Foto 1 (Lays e Mauro)">
+    <img src="img1.jpeg" alt="Nossa Foto 1 (Lays e Mauro)">
   </div>
 
   <h3>Uma música especial para nós:</h3>
@@ -128,14 +128,14 @@
   <canvas id="heartChart" width="400" height="400"></canvas>
 
   <div class="picture-frame">
-    <img src="img2.jpg" alt="Nossa Foto 2 (Momentos Felizes)">
+    <img src="img2.jpeg" alt="Nossa Foto 2 (Momentos Felizes)">
   </div>
 
   <h2>Nosso Amor em Um Só Coração ❤️</h2>
   <canvas id="perfectHeartShapeChart" width="400" height="400"></canvas>
 
   <div class="picture-frame">
-    <img src="img3.jpeg" alt="Nossa Foto 3 (Amor em Desenho)">
+    <img src="img3.jpeg" alt="Nossa Foto 3 (Amor Eterno)">
   </div>
 
   <script>
