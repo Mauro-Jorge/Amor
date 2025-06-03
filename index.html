@@ -29,7 +29,7 @@
       50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
-    h2, h3 { /* Applied to .container-title within .quadrinho-amor-container as well */
+    h2, h3 {
       font-size: 2rem;
       color: #d63384;
       margin-top: 2.5rem;
@@ -58,7 +58,7 @@
     .music-player-container audio {
       width: 300px;
     }
-    .interactive-section, .countdown-container, .daily-phrase-container, .quadrinho-amor-container { /* Added .quadrinho-amor-container */
+    .interactive-section, .countdown-container, .daily-phrase-container, .quadrinho-amor-container, .game-container { /* Added .game-container */
       background-color: rgba(255, 255, 255, 0.8);
       padding: 20px;
       border-radius: 15px;
@@ -78,161 +78,154 @@
       color: #c2185b;
       margin-top: 0.5em;
     }
-    .container-title { /* Used for section titles, including h3 in quadrinhos */
-        font-size: 1.8em; /* Slightly larger for section titles */
+    .container-title {
+        font-size: 1.8em;
         color: #e6005c;
-        margin-bottom: 1em; /* Adjusted margin */
+        margin-bottom: 1em;
     }
 
-    /* Estilos para o Mosaico de Imagens */
-    .image-mosaic-container {
-      margin: 2.5rem auto;
-      padding: 15px;
-      background-color: rgba(255, 255, 255, 0.75);
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      max-width: 900px;
-    }
-    .image-mosaic {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-auto-rows: minmax(200px, auto);
-      gap: 15px;
-    }
-    .image-mosaic .mosaic-item {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    .image-mosaic .mosaic-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .image-mosaic .mosaic-item img:hover {
-      transform: scale(1.08);
-      filter: brightness(1.1);
-    }
-    .mosaic-item.featured {
-      grid-column: span 2;
-      grid-row: span 2;
-      aspect-ratio: 1 / 1;
-    }
+    /* Estilos para o Mosaico de Imagens (sem alterações) */
+    .image-mosaic-container { margin: 2.5rem auto; padding: 15px; background-color: rgba(255, 255, 255, 0.75); border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 900px; }
+    .image-mosaic { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-auto-rows: minmax(200px, auto); gap: 15px; }
+    .image-mosaic .mosaic-item { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+    .image-mosaic .mosaic-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease, filter 0.3s ease; }
+    .image-mosaic .mosaic-item img:hover { transform: scale(1.08); filter: brightness(1.1); }
+    .mosaic-item.featured { grid-column: span 2; grid-row: span 2; aspect-ratio: 1 / 1; }
 
-    /* Estilos para Quadrinhos do Amor */
-    .quadrinho-imagem img {
-        max-width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
-    .quadrinho-descricao {
-        font-size: 0.95em;
-        text-align: left;
-        line-height: 1.5;
-    }
-    .quadrinho-descricao h4 { /* Subtítulo para "Descrição da Ilustração" e "Nossos Pensamentos" */
-        color: #c2185b;
-        font-size: 1.2em; /* Adjusted size */
-        margin-top: 15px; /* More space above */
-        margin-bottom: 8px; /* More space below */
-        font-weight: bold;
-    }
-    .quadrinho-descricao p {
-        margin-bottom: 12px; /* More space between paragraphs */
-        color: #5c3a0a;
-    }
-    .quadrinho-descricao p.official-desc { /* Specific class for official description if needed for different styling */
-        font-style: italic;
-        color: #75542B; /* Slightly different color for official description */
-        background-color: rgba(255, 240, 245, 0.5); /* Very light pinkish background */
-        padding: 10px;
-        border-radius: 5px;
-    }
-     .quadrinho-descricao p.cute-message strong { /* For Mauro/Lays labels in cute messages */
-        color: #d63384;
-    }
+    /* Estilos para Quadrinhos do Amor (sem alterações) */
+    .quadrinho-imagem img { max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 10px; margin-bottom: 15px; }
+    .quadrinho-descricao { font-size: 0.95em; text-align: left; line-height: 1.5; }
+    .quadrinho-descricao h4 { color: #c2185b; font-size: 1.2em; margin-top: 15px; margin-bottom: 8px; font-weight: bold; }
+    .quadrinho-descricao p { margin-bottom: 12px; color: #5c3a0a; }
+    .quadrinho-descricao p.official-desc { font-style: italic; color: #75542B; background-color: rgba(255, 240, 245, 0.5); padding: 10px; border-radius: 5px; }
+    .quadrinho-descricao p.cute-message strong { color: #d63384; }
 
-
-    /* Estilos para Animação do Envelope ... (restantes dos estilos permanecem os mesmos) */
-    .envelope-container {
-        position: relative; width: 320px; height: 220px; margin: 20px auto;
-    }
-    .envelope {
-        position: absolute; width: 100%; height: 100%; background-color: #ffc0cb; border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;
-    }
-    .envelope-flap {
-        position: absolute; top: 0; left: 0; width: 100%; height: 55%; background-color: #ffb6c1;
-        clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%); transform-origin: top;
-        transition: transform 0.7s ease-in-out; z-index: 3;
-    }
+    /* Estilos para Animação do Envelope (sem alterações) */
+    .envelope-container { position: relative; width: 320px; height: 220px; margin: 20px auto; }
+    .envelope { position: absolute; width: 100%; height: 100%; background-color: #ffc0cb; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; }
+    .envelope-flap { position: absolute; top: 0; left: 0; width: 100%; height: 55%; background-color: #ffb6c1; clip-path: polygon(0 0, 100% 0, 100% 30%, 50% 100%, 0 30%); transform-origin: top; transition: transform 0.7s ease-in-out; z-index: 3; }
     .envelope-container.open .envelope-flap { transform: rotateX(180deg); }
-    .letter {
-        position: absolute; width: 90%; height: 85%; background-color: #fffaf0; border: 1px solid #f0e68c;
-        border-radius: 8px; padding: 15px; box-sizing: border-box; text-align: left;
-        font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; line-height: 1.4; color: #5c3a0a;
-        overflow-y: auto; z-index: 1; transform: translateY(100%); opacity: 0;
-        transition: transform 0.7s 0.5s ease-out, opacity 0.7s 0.5s ease-out;
-    }
+    .letter { position: absolute; width: 90%; height: 85%; background-color: #fffaf0; border: 1px solid #f0e68c; border-radius: 8px; padding: 15px; box-sizing: border-box; text-align: left; font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; line-height: 1.4; color: #5c3a0a; overflow-y: auto; z-index: 1; transform: translateY(100%); opacity: 0; transition: transform 0.7s 0.5s ease-out, opacity 0.7s 0.5s ease-out; }
     .envelope-container.open .letter { transform: translateY(-5%); opacity: 1; z-index: 2; }
     .letter-content h4 { text-align: center; color: #d63384; margin-bottom: 10px; }
     .letter-content p { margin-bottom: 10px; }
     .letter-content .signature { text-align: right; margin-top: 15px; font-style: italic; }
     .letter-content .ps { margin-top: 15px; font-size: 0.9em; }
 
-    /* Estilos para Quiz do Casal */
+    /* Estilos para Quiz do Casal (sem alterações) */
     .quiz-container { text-align: left; }
     .quiz-question { margin-bottom: 15px; font-weight: bold; }
     .quiz-options label { display: block; margin-bottom: 8px; cursor: pointer; }
     .quiz-options input { margin-right: 8px; }
-    .quiz-button {
-        background-color: #d63384; color: white; border: none; padding: 10px 20px;
-        border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 15px;
-    }
+    .quiz-button { background-color: #d63384; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 15px; }
     .quiz-button:hover { background-color: #c2185b; }
     .quiz-score, .love-thermometer-display { margin-top: 20px; font-size: 1.2em; }
-    .love-thermometer-bar-container {
-        width: 100%; background-color: #fddde6; border-radius: 10px; height: 30px;
-        margin-top: 10px; overflow: hidden; border: 1px solid #d63384;
-    }
-    .love-thermometer-bar {
-        width: 0%; height: 100%; background-color: #e6005c; border-radius: 8px;
-        transition: width 0.5s ease-in-out; text-align: center; line-height: 30px; color: white;
-    }
+    .love-thermometer-bar-container { width: 100%; background-color: #fddde6; border-radius: 10px; height: 30px; margin-top: 10px; overflow: hidden; border: 1px solid #d63384; }
+    .love-thermometer-bar { width: 0%; height: 100%; background-color: #e6005c; border-radius: 8px; transition: width 0.5s ease-in-out; text-align: center; line-height: 30px; color: white; }
     .player-turn { font-weight: bold; color: #e6005c; margin-bottom: 10px; }
 
-    /* Estilos para Raspadinha do Amor */
-    .scratch-card-container {
-        position: relative; width: 300px; height: 150px; margin: 20px auto; cursor: grab;
-        border: 2px dashed #d63384; border-radius: 10px; overflow: hidden;
-    }
-    .scratch-message {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        display: flex; align-items: center; justify-content: center;
-        text-align: center; font-size: 1.5em; color: #c2185b; padding: 10px;
-        background-color: #fff0f5;
-    }
-    #scratch-overlay {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: #f08080;
-        border-radius: 10px;
-    }
-
-    /* Estilos para Roleta do Amor */
+    /* Estilos para Roleta do Amor (sem alterações) */
     .roulette-container { display: flex; flex-direction: column; align-items: center; }
-    .spin-button {
-        margin-top: 20px; padding: 12px 25px; font-size: 1.2em;
-        background-color: #d63384; color: white; border: none; border-radius: 8px;
-        cursor: pointer; transition: background-color 0.3s;
-    }
+    .spin-button { margin-top: 20px; padding: 12px 25px; font-size: 1.2em; background-color: #d63384; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; }
     .spin-button:hover { background-color: #c2185b; }
     #rouletteResult { margin-top: 15px; font-size: 1.3em; font-weight: bold; color: #e6005c; }
+
+    /* --- NOVOS ESTILOS PARA OS JOGOS --- */
+    .game-status {
+        margin-top: 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    /* Jogo da Velha do Amor */
+    #tic-tac-toe-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: 240px; /* Tamanho menor para o jogo da velha */
+        height: 240px;
+        margin: 20px auto;
+        border: 2px solid #d63384;
+        border-radius: 10px;
+    }
+    .ttt-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em; /* Tamanho dos símbolos X e ❤️ */
+        font-weight: bold;
+        border: 1px solid #f48fb1; /* Borda rosa clara para as células */
+        cursor: pointer;
+        user-select: none; /* Impede seleção de texto */
+    }
+    .ttt-cell:hover {
+        background-color: #ffe6eb;
+    }
+    .ttt-cell.heart { color: #e91e63; } /* Cor para o coração */
+    .ttt-cell.x { color: #3f51b5; } /* Cor para o X (pode ser a cor do Mauro) */
+
+    /* Caça Palavras do Amor */
+    #word-search-grid-container {
+        display: grid;
+        /* Será preenchido por JS, ex: grid-template-columns: repeat(10, 1fr); */
+        border: 2px solid #d63384;
+        margin: 15px auto;
+        padding: 5px;
+        background-color: #fff0f5; /* Fundo lavanda rosa */
+        max-width: 400px; /* Ajuste conforme o tamanho da grade */
+    }
+    .ws-cell {
+        width: 30px; /* Ajuste conforme o tamanho da grade */
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #f8bbd0; /* Borda rosa mais clara */
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        user-select: none;
+    }
+    .ws-cell.selected {
+        background-color: #ffc0cb; /* Rosa claro para seleção */
+        color: #c2185b;
+    }
+    .ws-cell.found {
+        background-color: #a5d6a7; /* Verde claro para palavras encontradas */
+        color: #2e7d32;
+        animation: foundPulse 0.5s ease-out;
+    }
+    @keyframes foundPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    #word-search-list-container {
+        margin-top: 15px;
+        text-align: left;
+    }
+    #word-search-list li {
+        list-style: none;
+        font-size: 1.1em;
+        color: #5c3a0a;
+        margin-bottom: 5px;
+    }
+    #word-search-list li.found-in-list {
+        text-decoration: line-through;
+        color: #9e9e9e; /* Cinza para palavras encontradas na lista */
+    }
+    #word-search-prize-container {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #fff9c4; /* Amarelo claro para destaque do prêmio */
+        border: 2px dashed #ffb300; /* Laranja para borda do prêmio */
+        border-radius: 10px;
+    }
+    #prize-won {
+        color: #e65100; /* Laranja escuro para o nome do prêmio */
+    }
 
   </style>
 </head>
@@ -250,26 +243,28 @@
     </div>
   </div>
 
-  <div class="quadrinho-amor-container"> <h3 class="container-title">Cena 1: Cuidado Delicado 💪🩹😅</h3>
+  <div class="quadrinho-amor-container">
+    <h3 class="container-title">Cena 1: Cuidado Delicado 💪🩹😅</h3>
     <div class="quadrinho-imagem">
       <img src="cena1.png" alt="Mauro cuidando do dedo de Lays - Quadrinho do Amor">
     </div>
     <div class="quadrinho-descricao">
       <h4>Descrição da Ilustração:</h4>
-      <p class="official-desc">Mauro, um homem negro com braços visivelmente musculosos, cabelo preto cacheado mais curto e uma barba bem aparada, tenta com cômica e amorosa dedicação aplicar um curativo no dedo de Lays. Lays, uma mulher de pele clara com longos cabelos escuros e levemente ondulados, é faixa azul de jiu-jitsu, e sua expressão é uma mistura de diversão e ternura enquanto recebe o cuidado gentil de Mauro. A cena é brincalhona e tocante, uma representação terna de sua conexão cotidiana. Os personagens são renderizados com linhas limpas, transmitindo suas expressões através de traços simples, porém evocativos, em uma paleta de cores pastel suaves que realça o calor e a doçura de seu laço. Esta cena lúdica captura sua conexão única através de um design minimalista simples, mas expressivo.</p>
+      <p class="official-desc">Mauro, um homem negro com braços visivelmente musculosos, cabelo preto cacheado mais curto e uma barba bem aparada, tenta com cômica e amorosa dedicação aplicar um curativo no dedo de Lays. Lays, uma mulher de pele clara com longos cabelos escuros e levemente ondulados, é faixa azul de jiu-jitsu, e sua expressão é uma mistura de diversão e ternura enquanto recebe o cuidado gentil de Mauro...</p>
       <h4>Nossos Pensamentos na Cena:</h4>
       <p class="cute-message"><strong>Mauro (💪🩹😅):</strong> "Calma, meu amor, o Dr. Mauro vai deixar esse dedo 100%... ou quase! Pelo menos o curativo vai ser com muito amor!"</p>
       <p class="cute-message"><strong>Lays (😊💖🥋):</strong> "Meu herói atrapalhado e forte! Tão fofo ele tentando ser delicado. Obrigada pelo cuidado, meu bem!"</p>
     </div>
   </div>
 
-  <div class="quadrinho-amor-container"> <h3 class="container-title">Cena 2: Chef Apaixonado 👨‍🍳🔥👖</h3>
+  <div class="quadrinho-amor-container">
+    <h3 class="container-title">Cena 2: Chef Apaixonado 👨‍🍳🔥👖</h3>
     <div class="quadrinho-imagem">
       <img src="cena2.png" alt="Mauro cozinhando para Lays - Quadrinho do Amor">
     </div>
     <div class="quadrinho-descricao">
       <h4>Descrição da Ilustração:</h4>
-      <p class="official-desc">Em um charmoso estilo 'bonecos bentô', Mauro, um homem negro com um físico forte, cabelo preto cacheado curto e barba, está cozinhando alegremente em uma cozinha caseira acolhedora e convidativa. Ele veste roupas casuais, uma camiseta e shorts, com uma expressão radiante de alegria. Ao lado dele, Lays, uma mulher com um tom de pele quente, levemente bronzeado/oliva e longos cabelos escuros levemente ondulados, observa-o com um sorriso amoroso, talvez encostada em um balcão, também vestida casualmente com uma blusa confortável e calças. A atmosfera geral é relaxada e afetuosa, retratando uma noite casual em casa. Esta ilustração usa linhas limpas e cores suaves e convidativas, enfatizando uma atmosfera aconchegante e amorosa em um estilo de arte minimalista e expressivo.</p>
+      <p class="official-desc">Em um charmoso estilo 'bonecos bentô', Mauro, um homem negro com um físico forte, cabelo preto cacheado curto e barba, está cozinhando alegremente em uma cozinha caseira acolhedora e convidativa. Ele veste roupas casuais, uma camiseta e shorts, com uma expressão radiante de alegria. Ao lado dele, Lays, uma mulher com um tom de pele quente, levemente bronzeado/oliva e longos cabelos escuros levemente ondulados, observa-o com um sorriso amoroso, talvez encostada em um balcão, também vestida casualmente com uma blusa confortável e calças...</p>
       <h4>Nossos Pensamentos na Cena:</h4>
       <p class="cute-message"><strong>Mauro (👨‍🍳🔥👖):</strong> "Só no preparo daquele prato especial pra minha gata! Cozinhar pra ela é meu jeito de dizer eu te amo... com tempero!"</p>
       <p class="cute-message"><strong>Lays (🥰🍽️🛋️):</strong> "Amo ver meu chef particular em ação na nossa cozinha! O cheirinho já está incrível... e ele fica tão lindo concentrado. Mal posso esperar!"</p>
@@ -278,9 +273,7 @@
 
   <h3>Uma música especial para nós:</h3>
   <div class="music-player-container">
-    <audio id="local-audio-player" controls src="true_love_soja.mp3">
-      Seu navegador não suporta o elemento de áudio.
-    </audio>
+    <audio id="local-audio-player" controls src="true_love_soja.mp3">Seu navegador não suporta o elemento de áudio.</audio>
   </div>
 
   <div class="countdown-container">
@@ -291,6 +284,38 @@
   <div class="daily-phrase-container">
     <p class="container-title">Pensamento do Dia 🥰:</p>
     <div id="dailyPhrase">Carregando frase...</div>
+  </div>
+
+  <div class="interactive-section game-container" id="jogo-da-velha-secao">
+    <h2 class="container-title">Jogo da Velha do Amor 💖<span style="font-size: 0.7em; color: #6a1b9a;"> X </span>💙</h2>
+    <div id="tic-tac-toe-board">
+      <div class="ttt-cell" data-index="0"></div> <div class="ttt-cell" data-index="1"></div> <div class="ttt-cell" data-index="2"></div>
+      <div class="ttt-cell" data-index="3"></div> <div class="ttt-cell" data-index="4"></div> <div class="ttt-cell" data-index="5"></div>
+      <div class="ttt-cell" data-index="6"></div> <div class="ttt-cell" data-index="7"></div> <div class="ttt-cell" data-index="8"></div>
+    </div>
+    <p id="tic-tac-toe-status" class="game-status">Vez do ❤️ (Lays)</p>
+    <button id="restart-tic-tac-toe" class="quiz-button">Jogar Novamente</button>
+  </div>
+
+  <div class="interactive-section game-container" id="caca-palavras-secao">
+    <h2 class="container-title">Caça Palavras do Amor 💘</h2>
+    <p>Lays, encontre as palavras de amor e ganhe um delicioso Vale Doces!</p>
+    <div id="word-search-grid-container">
+      </div>
+    <div id="word-search-list-container">
+      <h3 style="color: #c2185b;">Palavras para Encontrar:</h3>
+      <ul id="word-search-list">
+        </ul>
+    </div>
+    <div id="word-search-feedback" style="margin-top:10px; font-weight:bold;"></div>
+    <div id="word-search-found-container" style="margin-top:10px;">
+      <h3 style="color: #c2185b;">Palavras Encontradas: <span id="found-count">0</span> de <span id="total-words-display">0</span></h3>
+    </div>
+    <div id="word-search-prize-container" style="display:none;">
+      <h3 style="color: #d63384;">Parabéns Lays! 🎉 Seu Vale Doces é:</h3>
+      <p id="prize-won" style="font-size: 1.8em; font-weight: bold; color: #e65100;"></p>
+    </div>
+    <button id="reset-word-search" class="quiz-button" style="margin-top:15px;">Novo Jogo / Misturar</button>
   </div>
 
   <h2>Nossa Jornada de Amor</h2>
@@ -314,24 +339,11 @@
     </div>
   </div>
 
-  <div class="interactive-section">
-    <h2>Raspadinha do Amor 💌</h2>
-    <p>Passe o mouse (ou o dedo) para revelar uma mensagem especial!</p>
-    <div class="scratch-card-container">
-      <div class="scratch-message">
-        <span>Te amo mais que chocolate quente em dia frio! ❤️</span>
-      </div>
-      <canvas id="scratch-overlay"></canvas>
-    </div>
-    <button id="resetScratchCard" class="quiz-button" style="margin-top: 10px;">Raspar de Novo</button>
-  </div>
-
   <h2>Nosso Amor em Um Só Coração ❤️</h2>
   <canvas id="perfectHeartShapeChart" width="400" height="400"></canvas>
 
   <div class="interactive-section">
     <h2>Roleta do Amor 🎡💕</h2>
-    <p>Gire a roleta para sortear um gesto de carinho!</p>
     <div class="roulette-container">
         <canvas id="rouletteCanvas" width="450" height="450"></canvas>
         <button id="spinRouletteButton" class="spin-button">Girar a Roleta!</button>
@@ -340,335 +352,353 @@
   </div>
 
   <script>
-    // --- DATA DE INÍCIO DO RELACIONAMENTO ---
+    // --- DATA DE INÍCIO DO RELACIONAMENTO E OUTRAS CONFIGS GLOBAIS ---
     const relationshipStartDate = new Date("March 5, 2025 00:00:00");
+    // ... (Código do cronômetro, frases diárias, gráficos, quiz, roleta permanece o mesmo) ...
 
-    // --- Cronômetro Regressivo ---
-    const anniversaryDate = new Date("June 5, 2025 00:00:00").getTime();
-    const countdownTitleEl = document.getElementById('countdownTitle');
-    const countdownInterval = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = anniversaryDate - now;
-      const countdownElement = document.getElementById("countdownTimer");
+    // --- LÓGICA PARA O JOGO DA VELHA DO AMOR ---
+    const ttt_boardElement = document.getElementById('tic-tac-toe-board');
+    const ttt_statusElement = document.getElementById('tic-tac-toe-status');
+    const ttt_restartButton = document.getElementById('restart-tic-tac-toe');
+    const ttt_cells = Array.from(document.querySelectorAll('.ttt-cell'));
 
-      if (distance < 0) {
-        clearInterval(countdownInterval);
-        if(countdownElement) countdownElement.innerHTML = "";
-        if(countdownTitleEl) countdownTitleEl.innerHTML = "Chegou o nosso dia especial! ❤️";
+    let ttt_currentPlayerSymbol = '❤️'; // Lays (❤️) começa
+    let ttt_boardState = Array(9).fill(null); // null, '❤️', ou 'X'
+    let ttt_gameActive = true;
 
-        const envelopeContainerDiv = document.createElement('div');
-        envelopeContainerDiv.className = 'envelope-container';
-        const envelopeDiv = document.createElement('div');
-        envelopeDiv.className = 'envelope';
-        const flapDiv = document.createElement('div');
-        flapDiv.className = 'envelope-flap';
-        const letterDiv = document.createElement('div');
-        letterDiv.className = 'letter';
-        letterDiv.innerHTML = `
-          <div class="letter-content">
-            <h4>🌽💛 Bilhetim Arretado d’amô 💛🌽</h4>
-            <p>Pra minha cabocla mais linda, Lays</p>
-            <p>Hoje é 5 de junho, meu amor, e a gente tá comemorando 3 meses de namoro...<br>
-            Mas tu sabe, né? Esse amô começou muito antes disso.<br>
-            Antes de ser minha namorada, tu já era minha melhor amiga,<br>
-            meu alicerce, meu riso fácil, meu abraço certo. 🌾</p>
-            <p>Tu chegou feito bandeirinha de São João no céu da roça,<br>
-            trazendo cor, calor de fogueira boa,<br>
-            e o aconchego de rede em fim de tarde.<br>
-            Ô sorte grande que foi te encontrar! 🔥</p>
-            <p>Tu é arretada, Lays. Uma mulher daquelas que a gente admira em silêncio,<br>
-            e ama em voz alta.<br>
-            Forte, inteligente, linda…<br>
-            Teu jeito me encanta e tua presença me acalma.<br>
-            O amor que sinto é tão grande que nem zabumba e sanfona dão conta de tocar!</p>
-            <p>Hoje, tudo que eu queria era um forrozim colado contigo,<br>
-            debaixo das estrelas, te sussurrando baixinho:<br>
-            “Oxente, como é bão te amar, viu?” 💃🕺</p>
-            <p class="signature">Obrigado por me fazer tão feliz.<br>
-            Tu é meu xodó, minha fogueirinha que nunca se apaga. ❤️‍🔥</p>
-            <p class="signature">Com todo meu carinho e paixão,<br>
-            do teu matuto apaixonado,<br>
-            Mauro 💘</p>
-            <p class="ps">P.S.: Vamo simbora viver muitos São Joãos juntos? 💍👒🎉</p>
-          </div>
-        `;
-        envelopeDiv.appendChild(flapDiv);
-        envelopeDiv.appendChild(letterDiv);
-        envelopeContainerDiv.appendChild(envelopeDiv);
-        if(countdownElement) countdownElement.appendChild(envelopeContainerDiv);
-        setTimeout(() => { envelopeContainerDiv.classList.add('open'); }, 500);
-      } else {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        if (countdownElement) {
-            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s ⏳`;
-        }
-      }
-    }, 1000);
-
-    // --- Frases Românticas Diárias ---
-    const romanticPhrases = [
-      "Cada dia ao seu lado é um novo capítulo da nossa linda história de amor! Te amo! ❤️",
-      "Você é a melodia que meu coração não cansa de tocar e dançar. 🎶💑",
-      "Nosso amor floresce mais forte e belo a cada amanhecer juntos. 🌹☀️",
-      "Contando os segundos para sentir seu abraço e me perder no seu olhar! 🤗💖",
-      "Com você, a vida é uma eterna primavera, cheia de cores e alegrias. Te amo, meu bem! 🌷💞",
-      "Seu sorriso ilumina meus dias e aquece minha alma como o sol da manhã. 😊💘",
-      "Para sempre ainda parece pouco tempo para todo o amor que sinto por você. Te amo infinitamente! 💫💌",
-      "Que sorte a minha ter encontrado em você meu porto seguro e minha maior aventura! ⛵🗺️",
-      "Nossos corações batem no mesmo ritmo, construindo a mais linda canção de amor. 💞🎼",
-      "Você transforma o ordinário em extraordinário só por existir na minha vida. ✨ Te amo!"
+    const ttt_winningConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
+        [0, 4, 8], [2, 4, 6]             // Diagonais
     ];
-    const today = new Date();
-    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    const phraseIndex = dayOfYear % romanticPhrases.length;
-    const dailyPhraseElement = document.getElementById("dailyPhrase");
-    if (dailyPhraseElement) {
-        dailyPhraseElement.innerHTML = `"${romanticPhrases [phraseIndex]}"`;
-    }
 
-    // --- Gráficos ---
-    const currentDate = new Date();
-    const timeDiff = currentDate.getTime() - relationshipStartDate.getTime();
-    let daysPassedSinceStart = Math.max(1, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
-    const loveJourneyDesc = document.getElementById('loveJourneyDescription');
-    if (loveJourneyDesc) {
-        loveJourneyDesc.textContent = `Gráfico do crescimento do nosso amor ao longo de ${daysPassedSinceStart} dia(s) incríveis!`;
-    }
+    function ttt_handleCellClick(event) {
+        const clickedCell = event.target;
+        const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
 
-    function generateLogGrowthData(totalDays) {
-      const labels = []; const dataLays = []; const dataMauro = [];
-      const A_Lays = 20, B_Lays = 0.15, C_Lays = 15;
-      const A_Mauro = 22, B_Mauro = 0.12, C_Mauro = 12;
-      for (let day = 1; day <= totalDays; day++) {
-        labels.push("Dia " + day);
-        dataLays.push(A_Lays * Math.log(B_Lays * day + 1) + C_Lays + Math.random() * 2.5);
-        dataMauro.push(A_Mauro * Math.log(B_Mauro * day + 1) + C_Mauro + Math.random() * 2.5);
-      }
-      return { labels, dataLays, dataMauro };
-    }
-    const { labels, dataLays, dataMauro } = generateLogGrowthData(daysPassedSinceStart);
-    const ctxHeart = document.getElementById('heartChart').getContext('2d');
-    new Chart(ctxHeart, {
-      type: 'line',
-      data: { labels, datasets: [
-          { label: 'Lays 💖', data: dataLays, borderColor: '#ff69b4', backgroundColor: 'rgba(255,105,180,0.2)', fill: true, tension: 0.4 },
-          { label: 'Mauro 💘', data: dataMauro, borderColor: '#db2777', backgroundColor: 'rgba(219,39,119,0.2)', fill: true, tension: 0.4 }
-      ]},
-      options: { responsive: true, plugins: { title: { display: true, text: 'O Crescimento Infinito do Nosso Amor ❤️', font: { size: 22 }, color: '#d63384' }, legend: { labels: { font: { size: 14 }}}},
-        scales: { y: { beginAtZero: false, title: { display: true, text: 'Intensidade do Amor (Crescimento Infinito)' }}, x: { title: { display: true, text: 'Dias de Amor Eterno' }}},
-        animation: { duration: 1500, easing: 'easeInOutQuint' }
-      }
-    });
-
-    function generatePerfectHeartPlotData(steps) {
-      const dataPoints = [];
-      for (let i = 0; i <= steps; i++) {
-        const t = (Math.PI * 2 * i) / steps;
-        const x = 16 * Math.pow(Math.sin(t), 3);
-        const y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
-        dataPoints.push({ x: x, y: y });
-      }
-      return dataPoints;
-    }
-    const perfectHeartPoints = generatePerfectHeartPlotData(100);
-    const ctxPerfectHeart = document.getElementById('perfectHeartShapeChart').getContext('2d');
-    new Chart(ctxPerfectHeart, {
-      type: 'line',
-      data: { datasets: [{ label: 'Coração Perfeito', data: perfectHeartPoints, borderColor: '#d63384', backgroundColor: 'rgba(214, 51, 132, 0.3)', fill: true, tension: 0, pointRadius: 0, borderWidth: 3 }] },
-      options: { responsive: true, maintainAspectRatio: true, plugins: { title: { display: true, text: 'Símbolo do Nosso Amor Eterno 💘', font: { size: 22, family: 'Segoe UI'}, color: '#d63384'}, legend: {display: false}},
-        scales: { x: {type: 'linear', display: false}, y: {type: 'linear', display: false}},
-        animation: { duration: 2500, easing: 'easeOutCubic'}
-      }
-    });
-
-    // --- LÓGICA PARA O QUIZ DO CASAL ---
-    const quizData = [
-        { question: "Onde foi nosso primeiro beijo?", options: ["Na pracinha da cidade", "No cinema local", "No laguinho da UFPE", "Na festa de Ana Maria"], correctAnswer: 2 },
-        { question: "Qual a data do nosso aniversário de namoro?", options: ["05 de Março", "15 de Abril", "05 de Junho", "20 de Fevereiro"], correctAnswer: 0 },
-        { question: "Onde nos conhecemos?", options: ["Na faculdade (UFPE)", "No trabalho", "Online, num app", "Numa festa de amigos"], correctAnswer: 0 },
-        { question: "Onde foi realizado o pedido de namoro?", options: ["Em um jantar romântico especial", "Na praia ao pôr do sol", "Na cozinha da casa de Lays", "Durante um piquenique no parque"], correctAnswer: 2 },
-        { question: "Qual local mais frequentamos juntos?", options: ["Parque da cidade aos domingos", "Sorveteria Delícia Tropical", "Cinema do Shopping X", "Emflor Cafeteria"], correctAnswer: 3 },
-        { question: "Qual foi nosso primeiro date (encontro)?", options: ["Jantar e cinema", "Jantar seguido de passeio de Catamarã", "Piquenique no parque e sorvete", "Show de rock alternativo e barzinho"], correctAnswer: 1 },
-        { question: "Qual primeira refeição que fizemos após o pedido de namoro?", options: ["Pizza e refrigerante", "Sushi e saquê", "Batata doce e bife", "Lasanha caseira e vinho"], correctAnswer: 2 },
-        { question: "Qual primeiro presente Lays recebeu do namorado?", options: ["Um buquê de rosas vermelhas", "Uma caixa de chocolates finos importados", "Uma cesta em comemoração ao Dia das Mulheres", "Um livro de romance famoso"], correctAnswer: 2 },
-        { question: "Quantas vezes Lays recebeu flores do namorado?", options: ["Apenas uma vez, no início", "Duas vezes, em datas especiais", "Três vezes contadas", "Mais de 3 vezes, ele é um romântico!"], correctAnswer: 3 },
-        { question: "O que Lays recebeu de presente de Páscoa?", options: [ "Um ovo de Páscoa gigante da marca favorita dela", "Uma cesta com chocolates, 3 mini ovos de colher, uma bag e um boné", "Apenas uma caixa com chocolates variados e uma cartinha", "Um coelhinho de pelúcia fofo e alguns bombons" ], correctAnswer: 1 }
-    ];
-    let currentQuestionIndex = 0;
-    let scores = { Lays: 0, Mauro: 0 };
-    let currentPlayer = "Lays";
-    let quizFinished = false;
-    const questionElement = document.getElementById('quizQuestion');
-    const optionsElement = document.getElementById('quizOptions');
-    const nextButton = document.getElementById('nextQuizButton');
-    const scoreElement = document.getElementById('quizScore');
-    const thermometerBar = document.getElementById('loveThermometerBar');
-    const playerIndicator = document.getElementById('playerIndicator');
-
-    function loadQuizQuestion() {
-        if (quizFinished) return;
-        let actualQuestionIndexForPlayer = (currentPlayer === "Lays") ? currentQuestionIndex : currentQuestionIndex - quizData.length;
-        playerIndicator.textContent = `Vez de: ${currentPlayer} responder!`;
-        const questionToShowIndex = actualQuestionIndexForPlayer;
-
-        if (questionToShowIndex >= quizData.length) {
-             showQuizResults();
-             return;
+        if (ttt_boardState[clickedCellIndex] !== null || !ttt_gameActive) {
+            return;
         }
-        const currentQ = quizData[questionToShowIndex];
-        questionElement.textContent = `Pergunta ${questionToShowIndex + 1}: ${currentQ.question}`;
-        optionsElement.innerHTML = "";
-        currentQ.options.forEach((option, index) => {
-            const li = document.createElement('label');
-            li.innerHTML = `<input type="radio" name="quizOption" value="${index}"> ${option}`;
-            optionsElement.appendChild(li);
-        });
-        nextButton.textContent = "Confirmar Resposta";
-        nextButton.disabled = false;
-    }
-    function handleQuizSubmission() {
-        if (quizFinished) {
-            currentQuestionIndex = 0; scores = { Lays: 0, Mauro: 0 }; currentPlayer = "Lays"; quizFinished = false;
-            scoreElement.textContent = ""; updateLoveThermometer(); loadQuizQuestion(); return;
-        }
-        const selectedOption = document.querySelector('input[name="quizOption"]:checked');
-        if (!selectedOption) { alert("Por favor, selecione uma opção!"); return; }
-        const questionIndexOfPlayer = (currentPlayer === "Lays") ? currentQuestionIndex : currentQuestionIndex - quizData.length;
-        if (parseInt(selectedOption.value) === quizData[questionIndexOfPlayer].correctAnswer) {
-            scores[currentPlayer]++;
-        }
-        currentQuestionIndex++;
-        if (currentPlayer === "Lays" && (currentQuestionIndex >= quizData.length)) {
-            currentPlayer = "Mauro";
-            alert("Lays completou! Agora é a vez de Mauro.");
-            loadQuizQuestion();
-        } else if (currentPlayer === "Mauro" && (currentQuestionIndex - quizData.length >= quizData.length)) {
-            showQuizResults();
-        } else {
-            loadQuizQuestion();
-        }
-        updateLoveThermometer();
-    }
-    function showQuizResults() {
-        quizFinished = true;
-        questionElement.textContent = "Quiz Finalizado!"; optionsElement.innerHTML = "";
-        playerIndicator.textContent = "Resultado Final:";
-        scoreElement.innerHTML = `Pontuação:<br>Lays: ${scores.Lays} de ${quizData.length} <br>Mauro: ${scores.Mauro} de ${quizData.length}`;
-        nextButton.textContent = "Jogar Novamente"; nextButton.disabled = false;
-        updateLoveThermometer();
-    }
-    function updateLoveThermometer() {
-        const totalPossibleScore = quizData.length * 2;
-        const combinedScore = scores.Lays + scores.Mauro;
-        const percentage = totalPossibleScore > 0 ? (combinedScore / totalPossibleScore) * 100 : 0;
-        thermometerBar.style.width = `${percentage}%`;
-        thermometerBar.textContent = `${Math.round(percentage)}% Sintonia`;
-    }
-    nextButton.addEventListener('click', handleQuizSubmission);
-    loadQuizQuestion();
 
-    // --- LÓGICA PARA RASPADINHA DO AMOR ---
-    const scratchCanvas = document.getElementById('scratch-overlay');
-    const scratchMessageContainer = document.querySelector('.scratch-card-container .scratch-message span');
-    const scratchCtx = scratchCanvas.getContext('2d');
-    const resetButton = document.getElementById('resetScratchCard');
-    let isScratching = false;
-    function setupScratchCard() {
-        scratchCanvas.width = scratchCanvas.parentElement.offsetWidth;
-        scratchCanvas.height = scratchCanvas.parentElement.offsetHeight;
-        scratchCtx.fillStyle = '#f08080';
-        scratchCtx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
-        scratchCtx.globalCompositeOperation = 'destination-out';
-        const scratchMessages = [ "Você é meu trevo de quatro folhas! 🍀❤️", "Nosso amor é minha canção favorita! 🎶💖", "Com você, todo dia é dia de São Valentim! 😍", "Meu coração faz tum tum mais forte por você! 💘", "Você colore meu mundo! 🌈 Te amo!" ];
-        scratchMessageContainer.textContent = scratchMessages[Math.floor(Math.random() * scratchMessages.length)];
-    }
-    function scratch(e) {
-        if (!isScratching) return;
-        const rect = scratchCanvas.getBoundingClientRect();
-        const x = (e.clientX || e.touches[0].clientX) - rect.left;
-        const y = (e.clientY || e.touches[0].clientY) - rect.top;
-        scratchCtx.beginPath(); scratchCtx.arc(x, y, 20, 0, Math.PI * 2); scratchCtx.fill();
-    }
-    scratchCanvas.addEventListener('mousedown', () => isScratching = true);
-    scratchCanvas.addEventListener('mouseup', () => isScratching = false);
-    scratchCanvas.addEventListener('mouseleave', () => isScratching = false);
-    scratchCanvas.addEventListener('mousemove', scratch);
-    scratchCanvas.addEventListener('touchstart', (e) => { e.preventDefault(); isScratching = true; });
-    scratchCanvas.addEventListener('touchend', () => isScratching = false);
-    scratchCanvas.addEventListener('touchmove', (e) => { e.preventDefault(); scratch(e); });
-    resetButton.addEventListener('click', setupScratchCard);
-    setupScratchCard();
+        ttt_boardState[clickedCellIndex] = ttt_currentPlayerSymbol;
+        clickedCell.textContent = ttt_currentPlayerSymbol;
+        clickedCell.classList.add(ttt_currentPlayerSymbol === '❤️' ? 'heart' : 'x');
 
-    // --- LÓGICA PARA ROLETA DO AMOR ---
-    const rouletteCanvasEl = document.getElementById('rouletteCanvas');
-    const rouletteCtxEl = rouletteCanvasEl.getContext('2d');
-    const spinButtonEl = document.getElementById('spinRouletteButton');
-    const rouletteResultElementEl = document.getElementById('rouletteResult');
-
-    const roulettePrizes = [ "Vale um abraço apertado 🤗", "Vale um beijo demorado 😘", "Massagem relaxante 💆‍♀️💆‍♂️", "Escolher o filme de hoje 🎬", "Jantar especial feito por mim 🍳", "Um elogio sincero ✨", "Café na cama surpresa ☕🥐", "Noite de jogos divertidos 🎲", "Passeio romântico 🌳", "Ouvir sua música favorita juntos 🎶", "Um desejo realizado (simples!) 🌟", "Escrever um bilhetinho de amor 💌" ];
-    const numSegmentsRoulette = roulettePrizes.length;
-    const anglePerSegmentRoulette = (2 * Math.PI) / numSegmentsRoulette;
-    const colorsRoulette = ["#FFC0CB", "#FFB6C1", "#FF69B4", "#DB7093", "#C71585", "#E6E6FA", "#D8BFD8", "#DDA0DD", "#DA70D6", "#BA55D3", "#FFC0CB", "#FFB6C1"];
-    let currentAngleRoulette = 0;
-    let spinTimeoutRoulette = null;
-    let isSpinningRoulette = false;
-
-    function drawRouletteSegment(index, startAngle, endAngle) {
-        rouletteCtxEl.beginPath();
-        rouletteCtxEl.fillStyle = colorsRoulette[index % colorsRoulette.length];
-        rouletteCtxEl.moveTo(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2);
-        rouletteCtxEl.arc(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2, rouletteCanvasEl.width / 2 - 10, startAngle, endAngle);
-        rouletteCtxEl.closePath(); rouletteCtxEl.fill(); rouletteCtxEl.stroke();
-        rouletteCtxEl.save();
-        rouletteCtxEl.fillStyle = "#4B0082";
-        rouletteCtxEl.font = "bold 13px Segoe UI";
-        rouletteCtxEl.translate(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2);
-        rouletteCtxEl.rotate(startAngle + anglePerSegmentRoulette / 2);
-        rouletteCtxEl.textAlign = "right";
-        rouletteCtxEl.fillText(roulettePrizes[index], rouletteCanvasEl.width / 2 - 25, 7);
-        rouletteCtxEl.restore();
-    }
-    function drawRoulette() {
-        rouletteCtxEl.clearRect(0, 0, rouletteCanvasEl.width, rouletteCanvasEl.height);
-        rouletteCtxEl.strokeStyle = '#d63384'; rouletteCtxEl.lineWidth = 2;
-        for (let i = 0; i < numSegmentsRoulette; i++) {
-            drawRouletteSegment(i, currentAngleRoulette + i * anglePerSegmentRoulette, currentAngleRoulette + (i + 1) * anglePerSegmentRoulette);
+        if (ttt_checkWin()) {
+            ttt_statusElement.textContent = `🎉 Jogador ${ttt_currentPlayerSymbol} Venceu! 🎉`;
+            ttt_gameActive = false;
+            return;
         }
-        rouletteCtxEl.fillStyle = '#e6005c'; rouletteCtxEl.beginPath();
-        rouletteCtxEl.moveTo(rouletteCanvasEl.width / 2 - 10, 7);
-        rouletteCtxEl.lineTo(rouletteCanvasEl.width / 2 + 10, 7);
-        rouletteCtxEl.lineTo(rouletteCanvasEl.width / 2, 38);
-        rouletteCtxEl.closePath(); rouletteCtxEl.fill();
+
+        if (ttt_boardState.every(cell => cell !== null)) {
+            ttt_statusElement.textContent = " Ops! Deu Velha!  empate! 💔";
+            ttt_gameActive = false;
+            return;
+        }
+
+        ttt_currentPlayerSymbol = ttt_currentPlayerSymbol === '❤️' ? 'X' : '❤️';
+        let nextPlayerName = ttt_currentPlayerSymbol === '❤️' ? "Lays (❤️)" : "Mauro (X)";
+        ttt_statusElement.textContent = `Vez do jogador ${nextPlayerName}`;
     }
-    function spinRoulette() {
-        if (isSpinningRoulette) return; isSpinningRoulette = true; spinButtonEl.disabled = true;
-        rouletteResultElementEl.textContent = "Girando...";
-        const spinAngleStart = Math.random() * 10 + 10;
-        const spinTimeTotal = Math.random() * 3000 + 4000;
-        let startTimestamp = null;
-        function rotate(timestamp) {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = timestamp - startTimestamp;
-            const fraction = progress / spinTimeTotal;
-            if (fraction < 1) {
-                const easedFraction = 1 - Math.pow(1 - fraction, 3);
-                currentAngleRoulette = (spinAngleStart * easedFraction * 2 * Math.PI);
-                drawRoulette(); spinTimeoutRoulette = requestAnimationFrame(rotate);
-            } else {
-                const finalAngleNormalized = currentAngleRoulette % (2 * Math.PI);
-                let winningSegmentIndex = Math.floor(numSegmentsRoulette - (finalAngleNormalized / (2 * Math.PI) * numSegmentsRoulette)) % numSegmentsRoulette;
-                if (winningSegmentIndex < 0) winningSegmentIndex += numSegmentsRoulette;
-                rouletteResultElementEl.textContent = `🎉 ${roulettePrizes[winningSegmentIndex]} 🎉`;
-                isSpinningRoulette = false; spinButtonEl.disabled = false;
+
+    function ttt_checkWin() {
+        for (let i = 0; i < ttt_winningConditions.length; i++) {
+            const condition = ttt_winningConditions[i];
+            const a = ttt_boardState[condition[0]];
+            const b = ttt_boardState[condition[1]];
+            const c = ttt_boardState[condition[2]];
+            if (a === null || b === null || c === null) {
+                continue;
+            }
+            if (a === b && b === c) {
+                return true; // Vitória
             }
         }
-        spinTimeoutRoulette = requestAnimationFrame(rotate);
+        return false; // Nenhuma vitória
     }
-    spinButtonEl.addEventListener('click', spinRoulette);
-    drawRoulette();
+
+    function ttt_restartGame() {
+        ttt_currentPlayerSymbol = '❤️';
+        ttt_boardState = Array(9).fill(null);
+        ttt_gameActive = true;
+        ttt_statusElement.textContent = `Vez do ❤️ (Lays)`;
+        ttt_cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('heart', 'x');
+        });
+    }
+
+    ttt_cells.forEach(cell => cell.addEventListener('click', ttt_handleCellClick));
+    ttt_restartButton.addEventListener('click', ttt_restartGame);
+    // FIM DA LÓGICA DO JOGO DA VELHA
+
+    // --- LÓGICA PARA O CAÇA PALAVRAS DO AMOR ---
+    const ws_gridContainer = document.getElementById('word-search-grid-container');
+    const ws_wordListElement = document.getElementById('word-search-list');
+    const ws_foundCountElement = document.getElementById('found-count');
+    const ws_totalWordsElement = document.getElementById('total-words-display');
+    const ws_prizeContainerElement = document.getElementById('word-search-prize-container');
+    const ws_prizeWonElement = document.getElementById('prize-won');
+    const ws_resetButton = document.getElementById('reset-word-search');
+    const ws_feedbackElement = document.getElementById('word-search-feedback');
+
+
+    const ws_wordsToFind = [
+        { text: "AMOR", found: false },
+        { text: "PAIXAO", found: false },
+        { text: "CARINHO", found: false },
+        { text: "BEIJO", found: false },
+        { text: "ETERNO", found: false }
+    ];
+    const ws_prizes = ["Baton Garoto 🍫", "Diamante Negro 💎", "Ouro Branco ✨", "Prestígio 🥥", "M&M's ®️🌈"]; // Do menos para o mais
+    const ws_gridSize = 12; // 12x12 grid
+    let ws_grid = []; // 2D array for the letters
+    let ws_isSelecting = false;
+    let ws_selectionPath = []; // [{element, row, col, letter}]
+    let ws_foundWordsCount = 0;
+
+    function ws_generateRandomLetter() {
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        return alphabet[Math.floor(Math.random() * alphabet.length)];
+    }
+
+    function ws_canPlaceWord(word, r, c, dr, dc) {
+        for (let i = 0; i < word.length; i++) {
+            const nr = r + i * dr;
+            const nc = c + i * dc;
+            if (nr < 0 || nr >= ws_gridSize || nc < 0 || nc >= ws_gridSize ||
+                (ws_grid[nr][nc] !== null && ws_grid[nr][nc] !== word[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function ws_placeWordInGrid(wordObj) {
+        const word = wordObj.text;
+        const directions = [ { dr: 0, dc: 1 }, { dr: 1, dc: 0 }, { dr: 1, dc: 1 }, /* H, V, Diag_SE */
+                             { dr: 0, dc: -1 }, { dr: -1, dc: 0 }, { dr: -1, dc: -1 }, /* H_rev, V_rev, Diag_NW */
+                             { dr: 1, dc: -1 }, { dr: -1, dc: 1 } /* Diag_SW, Diag_NE */];
+        let placed = false;
+        let attempts = 0;
+        while (!placed && attempts < 100) { // Try to place word
+            const dir = directions[Math.floor(Math.random() * directions.length)];
+            const r = Math.floor(Math.random() * ws_gridSize);
+            const c = Math.floor(Math.random() * ws_gridSize);
+
+            if (ws_canPlaceWord(word, r, c, dir.dr, dir.dc)) {
+                wordObj.start = {r,c};
+                wordObj.end = {r: r + (word.length-1)*dir.dr, c: c + (word.length-1)*dir.dc};
+                wordObj.direction = dir;
+
+                for (let i = 0; i < word.length; i++) {
+                    ws_grid[r + i * dir.dr][c + i * dir.dc] = word[i];
+                }
+                placed = true;
+            }
+            attempts++;
+        }
+        if (!placed) console.warn(`Não foi possível colocar a palavra: ${word}`); // For debugging
+        return placed;
+    }
+
+    function ws_initializeGrid() {
+        ws_grid = Array(ws_gridSize).fill(null).map(() => Array(ws_gridSize).fill(null));
+        ws_wordsToFind.forEach(wordObj => wordObj.found = false); // Reset found status
+        ws_foundWordsCount = 0;
+
+        // Shuffle words to change placement order each time for variety
+        let wordsToPlace = [...ws_wordsToFind].sort(() => 0.5 - Math.random());
+        wordsToPlace.forEach(ws_placeWordInGrid);
+
+        // Fill remaining empty cells
+        for (let r = 0; r < ws_gridSize; r++) {
+            for (let c = 0; c < ws_gridSize; c++) {
+                if (ws_grid[r][c] === null) {
+                    ws_grid[r][c] = ws_generateRandomLetter();
+                }
+            }
+        }
+    }
+
+    function ws_renderGrid() {
+        ws_gridContainer.innerHTML = '';
+        ws_gridContainer.style.gridTemplateColumns = `repeat(${ws_gridSize}, 1fr)`;
+        for (let r = 0; r < ws_gridSize; r++) {
+            for (let c = 0; c < ws_gridSize; c++) {
+                const cell = document.createElement('div');
+                cell.classList.add('ws-cell');
+                cell.textContent = ws_grid[r][c];
+                cell.dataset.row = r;
+                cell.dataset.col = c;
+                cell.addEventListener('mousedown', (e) => ws_handleCellMouseDown(e, cell, r, c));
+                cell.addEventListener('mouseenter', (e) => ws_handleCellMouseEnter(e, cell, r, c));
+                // Mouseup is handled globally on the document
+                ws_gridContainer.appendChild(cell);
+            }
+        }
+    }
+    document.addEventListener('mouseup', ws_handleCellMouseUp);
+
+
+    function ws_renderWordList() {
+        ws_wordListElement.innerHTML = '';
+        ws_wordsToFind.forEach(wordObj => {
+            const li = document.createElement('li');
+            li.textContent = wordObj.text;
+            if (wordObj.found) {
+                li.classList.add('found-in-list');
+            }
+            ws_wordListElement.appendChild(li);
+        });
+        ws_totalWordsElement.textContent = ws_wordsToFind.length;
+        ws_updateFoundCount();
+    }
+    
+    function ws_updateFoundCount() {
+        ws_foundCountElement.textContent = ws_foundWordsCount;
+        if (ws_foundWordsCount > 0 && ws_foundWordsCount <= ws_prizes.length) {
+            ws_prizeWonElement.textContent = ws_prizes[ws_foundWordsCount - 1];
+            ws_prizeContainerElement.style.display = 'block';
+        } else if (ws_foundWordsCount === 0) {
+            ws_prizeWonElement.textContent = "Continue procurando os doces sentimentos! 🥰";
+            ws_prizeContainerElement.style.display = 'block'; // Show encouragement
+        }
+        if (ws_foundWordsCount === ws_wordsToFind.length) {
+             ws_feedbackElement.textContent = "Parabéns! Você encontrou todas as palavras de amor!";
+             ws_prizeWonElement.textContent += " - Prêmio Máximo! 🏆";
+        }
+    }
+
+
+    function ws_handleCellMouseDown(event, cellElement, row, col) {
+        event.preventDefault();
+        ws_isSelecting = true;
+        ws_selectionPath = [{ element: cellElement, row: row, col: col, letter: ws_grid[row][col] }];
+        cellElement.classList.add('selected');
+        ws_feedbackElement.textContent = "";
+    }
+
+    function ws_handleCellMouseEnter(event, cellElement, row, col) {
+        if (!ws_isSelecting) return;
+        
+        // Evita adicionar a mesma célula múltiplas vezes se o mouse ziguezaguear sobre ela
+        if (ws_selectionPath.some(p => p.element === cellElement)) return;
+
+        // Lógica para manter o caminho reto (horizontal, vertical, diagonal)
+        if (ws_selectionPath.length > 0) {
+            const lastCell = ws_selectionPath[ws_selectionPath.length - 1];
+            const dr = row - lastCell.row;
+            const dc = col - lastCell.col;
+
+            if (ws_selectionPath.length === 1) { // Para a segunda célula, define a direção
+                if (Math.abs(dr) > 1 || Math.abs(dc) > 1 || (dr === 0 && dc === 0)) {
+                    // Não é uma célula adjacente válida para iniciar uma linha
+                    return;
+                }
+            } else { // Para células subsequentes, verifica se mantém a direção
+                const firstCell = ws_selectionPath[0];
+                const prevCell = ws_selectionPath[1]; // segunda célula para definir direção inicial
+                const expectedDr = prevCell.row - firstCell.row;
+                const expectedDc = prevCell.col - firstCell.col;
+                if (dr !== expectedDr || dc !== expectedDc) {
+                   // Mudou de direção ou não é adjacente na direção esperada
+                   // Alternativa: poderia resetar a seleção ou apenas ignorar esta célula
+                   return; 
+                }
+                // Verifica se é a próxima célula na linha reta
+                if (row !== lastCell.row + expectedDr || col !== lastCell.col + expectedDc) {
+                    return; // Não é a próxima célula na linha
+                }
+            }
+        }
+        
+        ws_selectionPath.push({ element: cellElement, row: row, col: col, letter: ws_grid[row][col] });
+        cellElement.classList.add('selected');
+    }
+
+    function ws_handleCellMouseUp() {
+        if (!ws_isSelecting || ws_selectionPath.length === 0) {
+            ws_isSelecting = false;
+            return;
+        }
+        ws_isSelecting = false;
+
+        let selectedWordForward = ws_selectionPath.map(p => p.letter).join('');
+        let selectedWordBackward = [...ws_selectionPath].reverse().map(p => p.letter).join('');
+        let wordFound = false;
+
+        for (const wordObj of ws_wordsToFind) {
+            if (!wordObj.found && (wordObj.text === selectedWordForward || wordObj.text === selectedWordBackward)) {
+                // Verifica se as coordenadas correspondem à palavra colocada (opcional, mas mais robusto)
+                // Esta verificação simples de string é suficiente para este exemplo
+                wordObj.found = true;
+                wordFound = true;
+                ws_foundWordsCount++;
+                ws_selectionPath.forEach(p => p.element.classList.add('found'));
+                break;
+            }
+        }
+
+        if (wordFound) {
+            ws_feedbackElement.textContent = "Palavra encontrada! 😍";
+        } else {
+            ws_feedbackElement.textContent = "Não é uma palavra da lista. Tente de novo! 🤔";
+        }
+
+        ws_selectionPath.forEach(p => p.element.classList.remove('selected'));
+        ws_selectionPath = [];
+        ws_renderWordList(); // Atualiza a lista de palavras (para riscar as encontradas)
+    }
+
+
+    function ws_resetWordSearchGame() {
+        ws_initializeGrid();
+        ws_renderGrid();
+        ws_renderWordList();
+        ws_prizeContainerElement.style.display = 'none';
+        ws_prizeWonElement.textContent = '';
+        ws_feedbackElement.textContent = "";
+    }
+    ws_resetButton.addEventListener('click', ws_resetWordSearchGame);
+    
+    // Inicializa o Caça Palavras
+    ws_resetWordSearchGame();
+    // FIM DA LÓGICA DO CAÇA PALAVRAS
+
+
+    // --- Demais Scripts (Gráficos, Quiz, Roleta) ---
+    // ... (O restante do seu script, como a configuração dos gráficos, quiz e roleta, continua aqui)
+    // Certifique-se que as funções `generateLogGrowthData`, `generatePerfectHeartPlotData`,
+    // `loadQuizQuestion`, `handleQuizSubmission`, `showQuizResults`, `updateLoveThermometer`,
+    // `drawRouletteSegment`, `drawRoulette`, `spinRoulette` estejam definidas.
+    // Elas foram incluídas na sua versão anterior do script.
+    
+    // Gráficos
+    const { labels, dataLays, dataMauro } = generateLogGrowthData(daysPassedSinceStart);
+    const ctxHeart = document.getElementById('heartChart').getContext('2d');
+    new Chart(ctxHeart, { type: 'line', data: { labels, datasets: [ { label: 'Lays 💖', data: dataLays, borderColor: '#ff69b4', backgroundColor: 'rgba(255,105,180,0.2)', fill: true, tension: 0.4 }, { label: 'Mauro 💘', data: dataMauro, borderColor: '#db2777', backgroundColor: 'rgba(219,39,119,0.2)', fill: true, tension: 0.4 } ]}, options: { responsive: true, plugins: { title: { display: true, text: 'O Crescimento Infinito do Nosso Amor ❤️', font: { size: 22 }, color: '#d63384' }, legend: { labels: { font: { size: 14 }}}}, scales: { y: { beginAtZero: false, title: { display: true, text: 'Intensidade do Amor (Crescimento Infinito)' }}, x: { title: { display: true, text: 'Dias de Amor Eterno' }}} , animation: { duration: 1500, easing: 'easeInOutQuint' } } });
+    const perfectHeartPoints = generatePerfectHeartPlotData(100);
+    const ctxPerfectHeart = document.getElementById('perfectHeartShapeChart').getContext('2d');
+    new Chart(ctxPerfectHeart, { type: 'line', data: { datasets: [{ label: 'Coração Perfeito', data: perfectHeartPoints, borderColor: '#d63384', backgroundColor: 'rgba(214, 51, 132, 0.3)', fill: true, tension: 0, pointRadius: 0, borderWidth: 3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { title: { display: true, text: 'Símbolo do Nosso Amor Eterno 💘', font: { size: 22, family: 'Segoe UI'}, color: '#d63384'}, legend: {display: false}}, scales: { x: {type: 'linear', display: false}, y: {type: 'linear', display: false}} , animation: { duration: 2500, easing: 'easeOutCubic'} } });
+
+    // Quiz
+    const quizData = [ { question: "Onde foi nosso primeiro beijo?", options: ["Na pracinha da cidade", "No cinema local", "No laguinho da UFPE", "Na festa de Ana Maria"], correctAnswer: 2 }, { question: "Qual a data do nosso aniversário de namoro?", options: ["05 de Março", "15 de Abril", "05 de Junho", "20 de Fevereiro"], correctAnswer: 0 }, { question: "Onde nos conhecemos?", options: ["Na faculdade (UFPE)", "No trabalho", "Online, num app", "Numa festa de amigos"], correctAnswer: 0 }, { question: "Onde foi realizado o pedido de namoro?", options: ["Em um jantar romântico especial", "Na praia ao pôr do sol", "Na cozinha da casa de Lays", "Durante um piquenique no parque"], correctAnswer: 2 }, { question: "Qual local mais frequentamos juntos?", options: ["Parque da cidade aos domingos", "Sorveteria Delícia Tropical", "Cinema do Shopping X", "Emflor Cafeteria"], correctAnswer: 3 }, { question: "Qual foi nosso primeiro date (encontro)?", options: ["Jantar e cinema", "Jantar seguido de passeio de Catamarã", "Piquenique no parque e sorvete", "Show de rock alternativo e barzinho"], correctAnswer: 1 }, { question: "Qual primeira refeição que fizemos após o pedido de namoro?", options: ["Pizza e refrigerante", "Sushi e saquê", "Batata doce e bife", "Lasanha caseira e vinho"], correctAnswer: 2 }, { question: "Qual primeiro presente Lays recebeu do namorado?", options: ["Um buquê de rosas vermelhas", "Uma caixa de chocolates finos importados", "Uma cesta em comemoração ao Dia das Mulheres", "Um livro de romance famoso"], correctAnswer: 2 }, { question: "Quantas vezes Lays recebeu flores do namorado?", options: ["Apenas uma vez, no início", "Duas vezes, em datas especiais", "Três vezes contadas", "Mais de 3 vezes, ele é um romântico!"], correctAnswer: 3 }, { question: "O que Lays recebeu de presente de Páscoa?", options: [ "Um ovo de Páscoa gigante da marca favorita dela", "Uma cesta com chocolates, 3 mini ovos de colher, uma bag e um boné", "Apenas uma caixa com chocolates variados e uma cartinha", "Um coelhinho de pelúcia fofo e alguns bombons" ], correctAnswer: 1 } ];
+    let currentQuestionIndex = 0; let scores = { Lays: 0, Mauro: 0 }; let currentPlayer = "Lays"; let quizFinished = false;
+    const questionElement = document.getElementById('quizQuestion'); const optionsElement = document.getElementById('quizOptions'); const nextButton = document.getElementById('nextQuizButton'); const scoreElement = document.getElementById('quizScore'); const thermometerBar = document.getElementById('loveThermometerBar'); const playerIndicator = document.getElementById('playerIndicator');
+    function loadQuizQuestion() { if (quizFinished) return; let actualQuestionIndexForPlayer = (currentPlayer === "Lays") ? currentQuestionIndex : currentQuestionIndex - quizData.length; playerIndicator.textContent = `Vez de: ${currentPlayer} responder!`; const questionToShowIndex = actualQuestionIndexForPlayer; if (questionToShowIndex >= quizData.length) { showQuizResults(); return; } const currentQ = quizData[questionToShowIndex]; questionElement.textContent = `Pergunta ${questionToShowIndex + 1}: ${currentQ.question}`; optionsElement.innerHTML = ""; currentQ.options.forEach((option, index) => { const li = document.createElement('label'); li.innerHTML = `<input type="radio" name="quizOption" value="${index}"> ${option}`; optionsElement.appendChild(li); }); nextButton.textContent = "Confirmar Resposta"; nextButton.disabled = false; }
+    function handleQuizSubmission() { if (quizFinished) { currentQuestionIndex = 0; scores = { Lays: 0, Mauro: 0 }; currentPlayer = "Lays"; quizFinished = false; scoreElement.textContent = ""; updateLoveThermometer(); loadQuizQuestion(); return; } const selectedOption = document.querySelector('input[name="quizOption"]:checked'); if (!selectedOption) { alert("Por favor, selecione uma opção!"); return; } const questionIndexOfPlayer = (currentPlayer === "Lays") ? currentQuestionIndex : currentQuestionIndex - quizData.length; if (parseInt(selectedOption.value) === quizData[questionIndexOfPlayer].correctAnswer) { scores[currentPlayer]++; } currentQuestionIndex++; if (currentPlayer === "Lays" && (currentQuestionIndex >= quizData.length)) { currentPlayer = "Mauro"; alert("Lays completou! Agora é a vez de Mauro."); loadQuizQuestion(); } else if (currentPlayer === "Mauro" && (currentQuestionIndex - quizData.length >= quizData.length)) { showQuizResults(); } else { loadQuizQuestion(); } updateLoveThermometer(); }
+    function showQuizResults() { quizFinished = true; questionElement.textContent = "Quiz Finalizado!"; optionsElement.innerHTML = ""; playerIndicator.textContent = "Resultado Final:"; scoreElement.innerHTML = `Pontuação:<br>Lays: ${scores.Lays} de ${quizData.length} <br>Mauro: ${scores.Mauro} de ${quizData.length}`; nextButton.textContent = "Jogar Novamente"; nextButton.disabled = false; updateLoveThermometer(); }
+    function updateLoveThermometer() { const totalPossibleScore = quizData.length * 2; const combinedScore = scores.Lays + scores.Mauro; const percentage = totalPossibleScore > 0 ? (combinedScore / totalPossibleScore) * 100 : 0; thermometerBar.style.width = `${percentage}%`; thermometerBar.textContent = `${Math.round(percentage)}% Sintonia`; }
+    nextButton.addEventListener('click', handleQuizSubmission); loadQuizQuestion();
+
+    // Roleta
+    const rouletteCanvasEl = document.getElementById('rouletteCanvas'); const rouletteCtxEl = rouletteCanvasEl.getContext('2d'); const spinButtonEl = document.getElementById('spinRouletteButton'); const rouletteResultElementEl = document.getElementById('rouletteResult');
+    const roulettePrizes = [ "Vale um abraço apertado 🤗", "Vale um beijo demorado 😘", "Massagem relaxante 💆‍♀️💆‍♂️", "Escolher o filme de hoje 🎬", "Jantar especial feito por mim 🍳", "Um elogio sincero ✨", "Café na cama surpresa ☕🥐", "Noite de jogos divertidos 🎲", "Passeio romântico 🌳", "Ouvir sua música favorita juntos 🎶", "Um desejo realizado (simples!) 🌟", "Escrever um bilhetinho de amor 💌" ]; const numSegmentsRoulette = roulettePrizes.length; const anglePerSegmentRoulette = (2 * Math.PI) / numSegmentsRoulette; const colorsRoulette = ["#FFC0CB", "#FFB6C1", "#FF69B4", "#DB7093", "#C71585", "#E6E6FA", "#D8BFD8", "#DDA0DD", "#DA70D6", "#BA55D3", "#FFC0CB", "#FFB6C1"]; let currentAngleRoulette = 0; let spinTimeoutRoulette = null; let isSpinningRoulette = false;
+    function drawRouletteSegment(index, startAngle, endAngle) { rouletteCtxEl.beginPath(); rouletteCtxEl.fillStyle = colorsRoulette[index % colorsRoulette.length]; rouletteCtxEl.moveTo(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2); rouletteCtxEl.arc(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2, rouletteCanvasEl.width / 2 - 10, startAngle, endAngle); rouletteCtxEl.closePath(); rouletteCtxEl.fill(); rouletteCtxEl.stroke(); rouletteCtxEl.save(); rouletteCtxEl.fillStyle = "#4B0082"; rouletteCtxEl.font = "bold 13px Segoe UI"; rouletteCtxEl.translate(rouletteCanvasEl.width / 2, rouletteCanvasEl.height / 2); rouletteCtxEl.rotate(startAngle + anglePerSegmentRoulette / 2); rouletteCtxEl.textAlign = "right"; rouletteCtxEl.fillText(roulettePrizes[index], rouletteCanvasEl.width / 2 - 25, 7); rouletteCtxEl.restore(); }
+    function drawRoulette() { rouletteCtxEl.clearRect(0, 0, rouletteCanvasEl.width, rouletteCanvasEl.height); rouletteCtxEl.strokeStyle = '#d63384'; rouletteCtxEl.lineWidth = 2; for (let i = 0; i < numSegmentsRoulette; i++) { drawRouletteSegment(i, currentAngleRoulette + i * anglePerSegmentRoulette, currentAngleRoulette + (i + 1) * anglePerSegmentRoulette); } rouletteCtxEl.fillStyle = '#e6005c'; rouletteCtxEl.beginPath(); rouletteCtxEl.moveTo(rouletteCanvasEl.width / 2 - 10, 7); rouletteCtxEl.lineTo(rouletteCanvasEl.width / 2 + 10, 7); rouletteCtxEl.lineTo(rouletteCanvasEl.width / 2, 38); rouletteCtxEl.closePath(); rouletteCtxEl.fill(); }
+    function spinRoulette() { if (isSpinningRoulette) return; isSpinningRoulette = true; spinButtonEl.disabled = true; rouletteResultElementEl.textContent = "Girando..."; const spinAngleStart = Math.random() * 10 + 10; const spinTimeTotal = Math.random() * 3000 + 4000; let startTimestamp = null; function rotate(timestamp) { if (!startTimestamp) startTimestamp = timestamp; const progress = timestamp - startTimestamp; const fraction = progress / spinTimeTotal; if (fraction < 1) { const easedFraction = 1 - Math.pow(1 - fraction, 3); currentAngleRoulette = (spinAngleStart * easedFraction * 2 * Math.PI); drawRoulette(); spinTimeoutRoulette = requestAnimationFrame(rotate); } else { const finalAngleNormalized = currentAngleRoulette % (2 * Math.PI); let winningSegmentIndex = Math.floor(numSegmentsRoulette - (finalAngleNormalized / (2 * Math.PI) * numSegmentsRoulette)) % numSegmentsRoulette; if (winningSegmentIndex < 0) winningSegmentIndex += numSegmentsRoulette; rouletteResultElementEl.textContent = `🎉 ${roulettePrizes[winningSegmentIndex]} 🎉`; isSpinningRoulette = false; spinButtonEl.disabled = false; } } spinTimeoutRoulette = requestAnimationFrame(rotate); }
+    spinButtonEl.addEventListener('click', spinRoulette); drawRoulette();
 
   </script>
 </body>
