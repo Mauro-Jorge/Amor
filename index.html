@@ -528,6 +528,133 @@ document.addEventListener('DOMContentLoaded', function() {
         } else { console.error("Elementos do Quebra-Cabeça não encontrados."); }
     } catch (e) { console.error("Erro no Quebra-Cabeça:", e); }
 
+    // --- NOVO JOGO: LABORATÓRIO DO AMOR (BALANCEAMENTO) ---
+    try {
+        const labEquationDisplay = document.getElementById('equation-display');
+        const labCheckButton = document.getElementById('check-equation-button');
+        const labNextButton = document.getElementById('next-equation-button');
+        const labMessage = document.getElementById('lab-message');
+        const labStory = document.getElementById('equation-story');
+
+        if (labEquationDisplay && labCheckButton && labNextButton && labMessage && labStory) {
+            const loveEquations = [
+                {
+                    reactants: [{ name: "Mauro", symbol: "M", coeff: 1 }, { name: "Lays", symbol: "L", coeff: 1 }],
+                    products: [{ name: "UniãoPerfeita", symbol: "ML", coeff: 1 }],
+                    story: "Quando Mauro e Lays se unem, a magia acontece, formando uma União Perfeita e indivisível!"
+                },
+                {
+                    reactants: [{ name: "Café ☕", symbol: "Cf", coeff: 1 }, { name: "Beijos 😘", symbol: "Bj", coeff: 2 }],
+                    products: [{ name: "ManhãRadiante", symbol: "CfBj₂", coeff: 1 }],
+                    story: "Um bom café e dois beijos de bom dia: a fórmula para uma Manhã Radiante e cheia de energia!"
+                },
+                {
+                    reactants: [{ name: "Filme 🎬", symbol: "Fm", coeff: 1 }, { name: "Pipoca 🍿", symbol: "Pp", coeff: 1 }, { name: "Cobertor Quentinho", symbol: "Cb", coeff: 1 }],
+                    products: [{ name: "NoiteAconchegante", symbol: "FmPpCb", coeff: 1 }],
+                    story: "A combinação ideal de filme, pipoca e um cobertor resulta em uma Noite Aconchegante e cheia de amor."
+                },
+                {
+                    reactants: [{ name: "Abraços 🤗", symbol: "Ab", coeff: 2 }, { name: "Sorrisos 😊", symbol: "So", coeff: 2 }],
+                    products: [{ name: "Felicidade²", symbol: "Ab₂So₂", coeff: 1 }],
+                    story: "Dois abraços apertados e dois sorrisos sinceros multiplicam a felicidade ao quadrado!"
+                }
+            ];
+            let currentEquationIndex = 0;
+            let currentEquation;
+
+            function displayEquation(eq) {
+                currentEquation = eq;
+                labEquationDisplay.innerHTML = '';
+                labStory.textContent = eq.story;
+                labMessage.textContent = 'Insira os coeficientes para balancear a fórmula do amor!';
+                labNextButton.style.display = 'none';
+                labCheckButton.style.display = 'inline-block';
+
+                eq.reactants.forEach((r, index) => {
+                    if (index > 0) labEquationDisplay.innerHTML += ' <span class="operator">+</span> ';
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.min = '1';
+                    input.value = '1';
+                    input.classList.add('coeff-input');
+                    input.dataset.type = 'reactant';
+                    input.dataset.index = index;
+                    labEquationDisplay.appendChild(input);
+                    const nameSpan = document.createElement('span');
+                    nameSpan.classList.add('molecule-name');
+                    nameSpan.textContent = ` ${r.name} (${r.symbol})`;
+                    labEquationDisplay.appendChild(nameSpan);
+                });
+
+                labEquationDisplay.innerHTML += ' <span class="arrow">→</span> ';
+
+                eq.products.forEach((p, index) => {
+                    if (index > 0) labEquationDisplay.innerHTML += ' <span class="operator">+</span> ';
+                     const input = document.createElement('input');
+                    input.type = 'number';
+                    input.min = '1';
+                    input.value = '1';
+                    input.classList.add('coeff-input');
+                    input.dataset.type = 'product';
+                    input.dataset.index = index;
+                    labEquationDisplay.appendChild(input);
+                    const nameSpan = document.createElement('span');
+                    nameSpan.classList.add('molecule-name');
+                    nameSpan.textContent = ` ${p.name} (${p.symbol})`;
+                    labEquationDisplay.appendChild(nameSpan);
+                });
+            }
+
+            function checkBalance() {
+                if (!currentEquation) return;
+                let userReactantCoeffs = [];
+                let userProductCoeffs = [];
+                const inputs = labEquationDisplay.querySelectorAll('.coeff-input');
+                
+                inputs.forEach(input => {
+                    if (input.dataset.type === 'reactant') {
+                        userReactantCoeffs[parseInt(input.dataset.index)] = parseInt(input.value) || 0;
+                    } else {
+                        userProductCoeffs[parseInt(input.dataset.index)] = parseInt(input.value) || 0;
+                    }
+                });
+
+                let isCorrect = true;
+                for (let i = 0; i < currentEquation.reactants.length; i++) {
+                    if (userReactantCoeffs[i] !== currentEquation.reactants[i].coeff) {
+                        isCorrect = false; break;
+                    }
+                }
+                if (isCorrect) {
+                    for (let i = 0; i < currentEquation.products.length; i++) {
+                        if (userProductCoeffs[i] !== currentEquation.products[i].coeff) {
+                            isCorrect = false; break;
+                        }
+                    }
+                }
+
+                if (isCorrect) {
+                    labMessage.textContent = "🎉 Perfeitamente Balanceado! Vocês têm química de sobra! ❤️";
+                    labMessage.style.color = 'green';
+                    labNextButton.style.display = 'inline-block';
+                    labCheckButton.style.display = 'none';
+                } else {
+                    labMessage.textContent = "Hmm, essa fórmula parece um pouco instável... Tente de novo! 🤔";
+                    labMessage.style.color = 'red';
+                }
+            }
+            
+            labCheckButton.addEventListener('click', checkBalance);
+            labNextButton.addEventListener('click', () => {
+                currentEquationIndex = (currentEquationIndex + 1) % loveEquations.length;
+                displayEquation(loveEquations[currentEquationIndex]);
+                labMessage.style.color = ''; // Reset color
+            });
+
+            displayEquation(loveEquations[currentEquationIndex]); // Load first equation
+
+        } else { console.error("Elementos do Laboratório do Amor não encontrados."); }
+    } catch(e) { console.error("Erro no Laboratório do Amor:", e); }
 
     // --- Gráficos (Love Journey & Perfect Heart) ---
     try { /* ... (Código dos Gráficos como na resposta anterior) ... */
