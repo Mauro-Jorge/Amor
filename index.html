@@ -29,20 +29,19 @@
       50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
-    h2, h3 {
+    h2, h3 { /* Applied to .container-title within .quadrinho-amor-container as well */
       font-size: 2rem;
       color: #d63384;
       margin-top: 2.5rem;
       margin-bottom: 1rem;
     }
-    canvas { /* General canvas style */
+    canvas {
       max-width: 700px;
       margin: 2rem auto;
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
-     /* Specific style for roulette canvas - adjusted size handled in element */
     #rouletteCanvas {
         border-radius: 50%;
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -59,7 +58,7 @@
     .music-player-container audio {
       width: 300px;
     }
-    .interactive-section, .countdown-container, .daily-phrase-container, .daily-bento-container {
+    .interactive-section, .countdown-container, .daily-phrase-container, .quadrinho-amor-container { /* Added .quadrinho-amor-container */
       background-color: rgba(255, 255, 255, 0.8);
       padding: 20px;
       border-radius: 15px;
@@ -79,10 +78,10 @@
       color: #c2185b;
       margin-top: 0.5em;
     }
-    .container-title {
-        font-size: 1.5em;
+    .container-title { /* Used for section titles, including h3 in quadrinhos */
+        font-size: 1.8em; /* Slightly larger for section titles */
         color: #e6005c;
-        margin-bottom: 0.8em;
+        margin-bottom: 1em; /* Adjusted margin */
     }
 
     /* Estilos para o Mosaico de Imagens */
@@ -124,7 +123,43 @@
       aspect-ratio: 1 / 1;
     }
 
-    /* Estilos para Animação do Envelope */
+    /* Estilos para Quadrinhos do Amor */
+    .quadrinho-imagem img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .quadrinho-descricao {
+        font-size: 0.95em;
+        text-align: left;
+        line-height: 1.5;
+    }
+    .quadrinho-descricao h4 { /* Subtítulo para "Descrição da Ilustração" e "Nossos Pensamentos" */
+        color: #c2185b;
+        font-size: 1.2em; /* Adjusted size */
+        margin-top: 15px; /* More space above */
+        margin-bottom: 8px; /* More space below */
+        font-weight: bold;
+    }
+    .quadrinho-descricao p {
+        margin-bottom: 12px; /* More space between paragraphs */
+        color: #5c3a0a;
+    }
+    .quadrinho-descricao p.official-desc { /* Specific class for official description if needed for different styling */
+        font-style: italic;
+        color: #75542B; /* Slightly different color for official description */
+        background-color: rgba(255, 240, 245, 0.5); /* Very light pinkish background */
+        padding: 10px;
+        border-radius: 5px;
+    }
+     .quadrinho-descricao p.cute-message strong { /* For Mauro/Lays labels in cute messages */
+        color: #d63384;
+    }
+
+
+    /* Estilos para Animação do Envelope ... (restantes dos estilos permanecem os mesmos) */
     .envelope-container {
         position: relative; width: 320px; height: 220px; margin: 20px auto;
     }
@@ -199,30 +234,6 @@
     .spin-button:hover { background-color: #c2185b; }
     #rouletteResult { margin-top: 15px; font-size: 1.3em; font-weight: bold; color: #e6005c; }
 
-    /* Estilos para o Bentô Diário ("Bonecos Bentô") */
-    #dailyBentoImagePlaceholder { /* Container for the image content_id */
-        display: flex; /* Use flex to center the image if it's smaller than container */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        margin-top: 10px;
-        min-height: 200px; /* Give some space for the image to load */
-    }
-    #dailyBentoImagePlaceholder img { /* Style for image rendered via content_id if needed */
-        max-width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    #bentoImageDescriptionContainer {
-        font-size: 0.9em;
-        font-style: italic;
-        color: #7c2a4c;
-        margin-top: 10px;
-        padding: 10px;
-        background-color: rgba(255, 230, 235, 0.5);
-        border-radius: 8px;
-        text-align: left; /* Align text to left for readability */
-    }
-
   </style>
 </head>
 <body>
@@ -239,12 +250,29 @@
     </div>
   </div>
 
-  <div class="daily-bento-container">
-    <p class="container-title">Nosso Quadrinho do Amor Diário 💕:</p> <div id="dailyBentoImagePlaceholder">
-        http://googleusercontent.com/image_generation_content/1
+  <div class="quadrinho-amor-container"> <h3 class="container-title">Cena 1: Cuidado Delicado 💪🩹😅</h3>
+    <div class="quadrinho-imagem">
+      <img src="cena1.png" alt="Mauro cuidando do dedo de Lays - Quadrinho do Amor">
     </div>
-    <div id="bentoImageDescriptionContainer">
-      <p id="bentoImageDescription">A whimsical illustration in the style of 'bonecos bentô' depicts a sweet and funny moment between Mauro, a computer engineering student, and Lays, a chemical engineering student and jiu-jitsu blue belt. Mauro, with a comically exaggerated expression, attempts to gently apply a bandage to Lays's injured finger. Lays is depicted with a playful, amused smile, her expression radiating joy and fondness for Mauro. The soft pastel color palette, emphasizing hues of pink, blue and beige, provides a tender and gentle atmosphere. The characters are drawn with simple, clean lines, emphasizing their cuteness and expressiveness. The background is a minimalist representation of a serene, cozy living room, further enhancing the domesticity of the scene. This illustration captures a tender and lighthearted daily life moment within their relationship, showcasing their playful and loving dynamic in a minimalist and charming style.</p>
+    <div class="quadrinho-descricao">
+      <h4>Descrição da Ilustração:</h4>
+      <p class="official-desc">Mauro, um homem negro com braços visivelmente musculosos, cabelo preto cacheado mais curto e uma barba bem aparada, tenta com cômica e amorosa dedicação aplicar um curativo no dedo de Lays. Lays, uma mulher de pele clara com longos cabelos escuros e levemente ondulados, é faixa azul de jiu-jitsu, e sua expressão é uma mistura de diversão e ternura enquanto recebe o cuidado gentil de Mauro. A cena é brincalhona e tocante, uma representação terna de sua conexão cotidiana. Os personagens são renderizados com linhas limpas, transmitindo suas expressões através de traços simples, porém evocativos, em uma paleta de cores pastel suaves que realça o calor e a doçura de seu laço. Esta cena lúdica captura sua conexão única através de um design minimalista simples, mas expressivo.</p>
+      <h4>Nossos Pensamentos na Cena:</h4>
+      <p class="cute-message"><strong>Mauro (💪🩹😅):</strong> "Calma, meu amor, o Dr. Mauro vai deixar esse dedo 100%... ou quase! Pelo menos o curativo vai ser com muito amor!"</p>
+      <p class="cute-message"><strong>Lays (😊💖🥋):</strong> "Meu herói atrapalhado e forte! Tão fofo ele tentando ser delicado. Obrigada pelo cuidado, meu bem!"</p>
+    </div>
+  </div>
+
+  <div class="quadrinho-amor-container"> <h3 class="container-title">Cena 2: Chef Apaixonado 👨‍🍳🔥👖</h3>
+    <div class="quadrinho-imagem">
+      <img src="cena2.png" alt="Mauro cozinhando para Lays - Quadrinho do Amor">
+    </div>
+    <div class="quadrinho-descricao">
+      <h4>Descrição da Ilustração:</h4>
+      <p class="official-desc">Em um charmoso estilo 'bonecos bentô', Mauro, um homem negro com um físico forte, cabelo preto cacheado curto e barba, está cozinhando alegremente em uma cozinha caseira acolhedora e convidativa. Ele veste roupas casuais, uma camiseta e shorts, com uma expressão radiante de alegria. Ao lado dele, Lays, uma mulher com um tom de pele quente, levemente bronzeado/oliva e longos cabelos escuros levemente ondulados, observa-o com um sorriso amoroso, talvez encostada em um balcão, também vestida casualmente com uma blusa confortável e calças. A atmosfera geral é relaxada e afetuosa, retratando uma noite casual em casa. Esta ilustração usa linhas limpas e cores suaves e convidativas, enfatizando uma atmosfera aconchegante e amorosa em um estilo de arte minimalista e expressivo.</p>
+      <h4>Nossos Pensamentos na Cena:</h4>
+      <p class="cute-message"><strong>Mauro (👨‍🍳🔥👖):</strong> "Só no preparo daquele prato especial pra minha gata! Cozinhar pra ela é meu jeito de dizer eu te amo... com tempero!"</p>
+      <p class="cute-message"><strong>Lays (🥰🍽️🛋️):</strong> "Amo ver meu chef particular em ação na nossa cozinha! O cheirinho já está incrível... e ele fica tão lindo concentrado. Mal posso esperar!"</p>
     </div>
   </div>
 
